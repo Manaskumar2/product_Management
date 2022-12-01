@@ -205,7 +205,7 @@ const getDataByQuery = async function (req, res) {
                 return res.status(200).send({
                     status: true,
                     message: 'Success',
-                    datagetdata
+                    data:getdata
                 })
             }
         }

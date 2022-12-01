@@ -29,7 +29,7 @@ const createCart = async (req, res) => {
     if (!data.productId) return res.status(400).send({ status: false, message: "Please provide ProductId" })
     if (!mongoose.isValidObjectId(data.productId)) return res.status(400).send({ status: false, message: "Please provide Valid ProductId" })
 
-    let CheckProduct = await productModel.findById(data.productId)
+    let  CheckProduct = await productModel.findById(data.productId)
     if (!CheckProduct) return res.status(404).send({ status: false, message: "Prodoct details not found" })
     if (CheckProduct.isDeleted == true) return res.status(404).send({ status: false, message: "This product is deleted" })
     //----------------------------------------Quantity validation ---------------------------------------------------------------------------
@@ -245,7 +245,7 @@ const updateCart = async (req, res) => {
             { new: true }
           );
           return res
-            .status(201)
+            .status(200)
             .send({
               status: true,
               message: "One item removed successfully",
